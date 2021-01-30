@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-resource
+spec:
+  rules:
+  - host: 35.227.42.75.xip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: strapi-front-service
+          servicePort: 80
+      - path: /admin
+        backend:
+          serviceName: strapi-api-service
+          servicePort: 1337
